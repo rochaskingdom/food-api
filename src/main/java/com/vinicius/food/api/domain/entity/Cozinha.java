@@ -10,11 +10,12 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Entity
-@Table(name = "tab_cozinha")
+@Table(name = "tab_cozinhas")
 public class Cozinha {
 
     @Id
     private Long id;
 
+    @Column(name = "nom_cozinha")
     private String nome;
 }
