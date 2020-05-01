@@ -20,11 +20,17 @@ public class CadastroCozinha {
     }
 
     public Cozinha buscar(Long id) {
-        return  entityManager.find(Cozinha.class, id);
+        return entityManager.find(Cozinha.class, id);
     }
 
     @Transactional
     public Cozinha adicionar(Cozinha cozinha) {
         return entityManager.merge(cozinha);
+    }
+
+    @Transactional
+    public void remover(Cozinha cozinha) {
+        cozinha = buscar(cozinha.getId());
+        entityManager.remove(cozinha);
     }
 }
