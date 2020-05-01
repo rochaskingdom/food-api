@@ -2,11 +2,10 @@ package com.vinicius.food.api.jpa;
 
 import com.vinicius.food.api.FoodApiApplication;
 import com.vinicius.food.api.domain.entity.Cozinha;
+import com.vinicius.food.api.domain.repository.CozinhaRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
-
-import java.util.List;
 
 public class BuscaCozinhaMain {
 
@@ -15,9 +14,9 @@ public class BuscaCozinhaMain {
                 .web(WebApplicationType.NONE)
                 .run(args);
 
-        CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
+        CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);
 
-        Cozinha cozinha = cadastroCozinha.buscar(1L);
+        Cozinha cozinha = cozinhaRepository.porId(1L);
 
         System.out.println(cozinha);
     }
