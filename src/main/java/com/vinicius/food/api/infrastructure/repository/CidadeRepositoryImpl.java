@@ -1,6 +1,6 @@
 package com.vinicius.food.api.infrastructure.repository;
 
-import com.vinicius.food.api.domain.entity.Cidade;
+import com.vinicius.food.api.domain.model.Cidade;
 import com.vinicius.food.api.domain.repository.CidadeRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

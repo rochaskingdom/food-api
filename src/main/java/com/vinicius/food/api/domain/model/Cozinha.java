@@ -1,14 +1,16 @@
-package com.vinicius.food.api.domain.entity;
+package com.vinicius.food.api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
+@JsonRootName("cozinha")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cidade {
+public class Cozinha {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +19,4 @@ public class Cidade {
 
     @Column(nullable = false)
     private String nome;
-
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Estado estado;
 }
-

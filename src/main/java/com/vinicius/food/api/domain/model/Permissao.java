@@ -1,25 +1,24 @@
-package com.vinicius.food.api.domain.entity;
+package com.vinicius.food.api.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
-@JsonRootName("gastronomia")
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cozinha {
+public class Permissao {
 
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
     private Long id;
 
-//    @JsonIgnore
-    @JsonProperty("titulo")
     @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
+    private String descricao;
+
 }

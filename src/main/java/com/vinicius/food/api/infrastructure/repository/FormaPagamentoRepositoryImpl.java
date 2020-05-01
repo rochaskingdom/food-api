@@ -1,6 +1,6 @@
 package com.vinicius.food.api.infrastructure.repository;
 
-import com.vinicius.food.api.domain.entity.FormaPagamento;
+import com.vinicius.food.api.domain.model.FormaPagamento;
 import com.vinicius.food.api.domain.repository.FormaPagamentoRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,6 +1,6 @@
 package com.vinicius.food.api.domain.repository;
 
-import com.vinicius.food.api.domain.entity.Permissao;
+import com.vinicius.food.api.domain.model.Permissao;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.vinicius.food.api.domain.repository;
 
-import com.vinicius.food.api.domain.entity.Estado;
+import com.vinicius.food.api.domain.model.Estado;
 
 import java.util.List;
 

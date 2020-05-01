@@ -1,6 +1,6 @@
 package com.vinicius.food.api.domain.repository;
 
-import com.vinicius.food.api.domain.entity.Cozinha;
+import com.vinicius.food.api.domain.model.Cozinha;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.vinicius.food.api.domain.repository;
 
-import com.vinicius.food.api.domain.entity.Restaurante;
+import com.vinicius.food.api.domain.model.Restaurante;
 
 import java.util.List;
 

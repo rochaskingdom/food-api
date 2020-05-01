@@ -1,6 +1,6 @@
 package com.vinicius.food.api.controller;
 
-import com.vinicius.food.api.domain.entity.Estado;
+import com.vinicius.food.api.domain.model.Estado;
 import com.vinicius.food.api.domain.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
 package com.vinicius.food.api.jpa;
 
 import com.vinicius.food.api.FoodApiApplication;
-import com.vinicius.food.api.domain.entity.FormaPagamento;
+import com.vinicius.food.api.domain.model.FormaPagamento;
 import com.vinicius.food.api.domain.repository.FormaPagamentoRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;

@@ -1,6 +1,6 @@
 package com.vinicius.food.api.domain.repository;
 
-import com.vinicius.food.api.domain.entity.FormaPagamento;
+import com.vinicius.food.api.domain.model.FormaPagamento;
 
 import java.util.List;
 

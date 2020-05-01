@@ -1,7 +1,7 @@
 package com.vinicius.food.api.jpa;
 
 import com.vinicius.food.api.FoodApiApplication;
-import com.vinicius.food.api.domain.entity.Restaurante;
+import com.vinicius.food.api.domain.model.Restaurante;
 import com.vinicius.food.api.domain.repository.RestauranteRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;

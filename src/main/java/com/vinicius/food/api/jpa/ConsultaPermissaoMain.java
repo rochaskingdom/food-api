@@ -1,7 +1,7 @@
 package com.vinicius.food.api.jpa;
 
 import com.vinicius.food.api.FoodApiApplication;
-import com.vinicius.food.api.domain.entity.Permissao;
+import com.vinicius.food.api.domain.model.Permissao;
 import com.vinicius.food.api.domain.repository.PermissaoRepository;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;

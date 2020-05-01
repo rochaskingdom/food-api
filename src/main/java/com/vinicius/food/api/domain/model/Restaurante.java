@@ -1,4 +1,4 @@
-package com.vinicius.food.api.domain.entity;
+package com.vinicius.food.api.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
