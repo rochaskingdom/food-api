@@ -1,12 +1,13 @@
 package com.vinicius.food.api.controller;
 
+import com.vinicius.food.api.domain.exception.EntidadeEmUsoException;
+import com.vinicius.food.api.domain.exception.EntidadeNaoEncontradaException;
 import com.vinicius.food.api.domain.model.Cozinha;
 import com.vinicius.food.api.domain.repository.CozinhaRepository;
 import com.vinicius.food.api.domain.service.CadastroCozinhaService;
 import com.vinicius.food.api.model.CozinhasXmlWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -71,16 +72,13 @@ public class CozinhaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Cozinha> deletar(@PathVariable Long id) {
         try {
-            Cozinha cozinha = cozinhaRepository.buscar(id);
+            cadastroCozinhaService.excluir(id);
+            return ResponseEntity.noContent().build();
 
-            if (cozinha != null) {
-                cozinhaRepository.remover(cozinha);
-
-                return ResponseEntity.noContent().build();
-            }
-
+        } catch (EntidadeNaoEncontradaException e) {
             return ResponseEntity.notFound().build();
-        } catch (DataIntegrityViolationException e) {
+
+        } catch (EntidadeEmUsoException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }
