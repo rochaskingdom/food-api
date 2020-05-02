@@ -41,8 +41,8 @@ public class CozinhaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cozinha salvar(@RequestBody Cozinha cozinha) {
-        return cadastroCozinhaService.salvar(cozinha);
+    public Cozinha adicionar(@RequestBody Cozinha cozinha) {
+        return cadastroCozinhaService.adicionar(cozinha);
     }
 
     @PutMapping("/{id}")
@@ -54,7 +54,7 @@ public class CozinhaController {
 //        cozinhaAtual.setNome(cozinha.getNome());
             BeanUtils.copyProperties(cozinha, cozinhaAtual, "id");
 
-            cozinhaAtual = cadastroCozinhaService.salvar(cozinhaAtual);
+            cozinhaAtual = cadastroCozinhaService.adicionar(cozinhaAtual);
 
             return ResponseEntity.ok(cozinhaAtual);
         }
