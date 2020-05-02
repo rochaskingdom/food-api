@@ -16,7 +16,7 @@ public class CadastroCozinhaService {
     CozinhaRepository cozinhaRepository;
 
     public Cozinha salvar(Cozinha cozinha) {
-        return cozinhaRepository.salvar(cozinha);
+        return cozinhaRepository.adicionar(cozinha);
     }
 
     public void excluir(Long id) {

@@ -10,7 +10,7 @@ public interface CozinhaRepository {
 
     Cozinha buscar(Long id);
 
-    Cozinha salvar(Cozinha cozinha);
+    Cozinha adicionar(Cozinha cozinha);
 
     void remover(Long id);
 }
