@@ -2,6 +2,7 @@ package com.vinicius.food.api.controller;
 
 import com.vinicius.food.api.domain.model.Cozinha;
 import com.vinicius.food.api.domain.repository.CozinhaRepository;
+import com.vinicius.food.api.domain.service.CadastroCozinhaService;
 import com.vinicius.food.api.model.CozinhasXmlWrapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class CozinhaController {
 
     @Autowired
     private CozinhaRepository cozinhaRepository;
+
+    @Autowired
+    private CadastroCozinhaService cadastroCozinhaService;
 
     @GetMapping
     public List<Cozinha> listar() {
@@ -44,7 +48,7 @@ public class CozinhaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Cozinha salvar(@RequestBody Cozinha cozinha) {
-        return cozinhaRepository.salvar(cozinha);
+        return cadastroCozinhaService.salvar(cozinha);
     }
 
     @PutMapping("/{id}")
