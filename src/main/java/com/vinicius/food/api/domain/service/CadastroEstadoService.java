@@ -2,34 +2,34 @@ package com.vinicius.food.api.domain.service;
 
 import com.vinicius.food.api.domain.exception.EntidadeEmUsoException;
 import com.vinicius.food.api.domain.exception.EntidadeNaoEncontradaException;
-import com.vinicius.food.api.domain.model.Cozinha;
-import com.vinicius.food.api.domain.repository.CozinhaRepository;
+import com.vinicius.food.api.domain.model.Estado;
+import com.vinicius.food.api.domain.repository.EstadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CadastroCozinhaService {
+public class CadastroEstadoService {
 
     @Autowired
-    CozinhaRepository cozinhaRepository;
+    private EstadoRepository estadoRepository;
 
-    public Cozinha adicionar(Cozinha cozinha) {
-        return cozinhaRepository.adicionar(cozinha);
+    public Estado adicionar(Estado estado) {
+        return estadoRepository.adicionar(estado);
     }
 
     public void remover(Long id) {
         try {
-            cozinhaRepository.remover(id);
+            estadoRepository.remover(id);
+
         } catch (EmptyResultDataAccessException e) {
             throw new EntidadeNaoEncontradaException(
-                    String.format("Nao existe um cadastro de cozinha com codigo %d", id)
-            );
+                    String.format("Nao existe um cadastro de estado com codigo %d", id));
 
         } catch (DataIntegrityViolationException e) {
             throw new EntidadeEmUsoException(
-                    String.format("Cozinha de codido %d nao pode ser removida, pois esta em uso", id)
+                    String.format("Estado de codigo %d nao pode ser removido, pois esta em uso", id)
             );
         }
     }
