@@ -15,13 +15,13 @@ public class CadastroEstadoService {
     @Autowired
     private EstadoRepository estadoRepository;
 
-    public Estado adicionar(Estado estado) {
-        return estadoRepository.adicionar(estado);
+    public Estado salvar(Estado estado) {
+        return estadoRepository.save(estado);
     }
 
     public void remover(Long id) {
         try {
-            estadoRepository.remover(id);
+            estadoRepository.deleteById(id);
 
         } catch (EmptyResultDataAccessException e) {
             throw new EntidadeNaoEncontradaException(

@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/estados")
@@ -25,15 +26,15 @@ public class EstadoController {
 
     @GetMapping
     public List<Estado> listar() {
-        return estadoRepository.listar();
+        return estadoRepository.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Estado> buscar(@PathVariable Long id) {
-        Estado estado = estadoRepository.buscar(id);
+        Optional<Estado> estado = estadoRepository.findById(id);
 
-        if (estado != null) {
-            return ResponseEntity.ok(estado);
+        if (estado.isPresent()) {
+            return ResponseEntity.ok(estado.get());
         }
 
         return ResponseEntity.notFound().build();
@@ -42,7 +43,7 @@ public class EstadoController {
     @PostMapping
     public ResponseEntity<?> adicionar(@RequestBody Estado estado) {
         try {
-            estado = cadastroEstadoService.adicionar(estado);
+            estado = cadastroEstadoService.salvar(estado);
 
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(estado);
@@ -55,13 +56,13 @@ public class EstadoController {
     @PutMapping("/{id}")
     public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody Estado estado) {
         try {
-            Estado estadoAtual = estadoRepository.buscar(id);
+            Optional<Estado> estadoAtual = estadoRepository.findById(id);
 
-            if (estadoAtual != null) {
-                BeanUtils.copyProperties(estado, estadoAtual, "id");
+            if (estadoAtual.isPresent()) {
+                BeanUtils.copyProperties(estado, estadoAtual.get(), "id");
 
-                estadoAtual = cadastroEstadoService.adicionar(estadoAtual);
-                return ResponseEntity.ok(estadoAtual);
+                Estado estadoSalva = cadastroEstadoService.salvar(estadoAtual.get());
+                return ResponseEntity.ok(estadoSalva);
             }
 
             return ResponseEntity.notFound().build();

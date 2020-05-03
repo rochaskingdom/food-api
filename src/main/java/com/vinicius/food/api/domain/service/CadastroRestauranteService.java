@@ -18,7 +18,7 @@ public class CadastroRestauranteService {
     private CozinhaRepository cozinhaRepository;
 
 
-    public Restaurante adicionar(Restaurante restaurante) {
+    public Restaurante salvar(Restaurante restaurante) {
         Long cozinhaId = restaurante.getCozinha().getId();
         Cozinha cozinha = cozinhaRepository.findById(cozinhaId)
                 .orElseThrow(() -> new EntidadeNaoEncontradaException(
@@ -26,6 +26,6 @@ public class CadastroRestauranteService {
 
         restaurante.setCozinha(cozinha);
 
-        return restauranteRepository.adicionar(restaurante);
+        return restauranteRepository.save(restaurante);
     }
 }
