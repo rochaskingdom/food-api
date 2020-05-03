@@ -95,8 +95,6 @@ public class RestauranteController {
 
         System.out.println(restauranteOrigem);
 
-
-
         dadosOrigem.forEach((nomePropriedade, valorPropriedade) -> {
             Field field = ReflectionUtils.findField(Restaurante.class, nomePropriedade);
             field.setAccessible(true);

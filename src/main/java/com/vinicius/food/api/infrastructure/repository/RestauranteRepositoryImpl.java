@@ -13,7 +13,7 @@ import java.util.List;
 public class RestauranteRepositoryImpl implements RestauranteRepository {
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Override
     public List<Restaurante> listar() {
