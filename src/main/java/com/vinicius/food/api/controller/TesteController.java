@@ -14,9 +14,6 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import static com.vinicius.food.api.infrastructure.repository.spec.RestauranteSpecs.comFreteGratis;
-import static com.vinicius.food.api.infrastructure.repository.spec.RestauranteSpecs.comNomeSemelhante;
-
 @RestController
 @RequestMapping("/teste")
 public class TesteController {
@@ -76,8 +73,7 @@ public class TesteController {
     @GetMapping("/restaurantes/com-frete-gratis")
     public List<Restaurante> restaurantesPorNomeFrete(String nome) {
 
-        return restauranteRepository.findAll(comFreteGratis()
-                .and(comNomeSemelhante(nome)));
+        return restauranteRepository.findComFreteGratis(nome);
     }
 
 }
